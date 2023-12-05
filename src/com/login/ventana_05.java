@@ -1,20 +1,36 @@
 package com.login;
 
 import java.awt.Color;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
 public class ventana_05 extends javax.swing.JFrame {
     
     int xMouse, yMouse;
-    private int loginAttempts = 0;
-    private Timer timer;
-    private boolean timerRunning = false; // Variable para verificar si el temporizador está en ejecución
+    private String dato;
     public ventana_05() {
         initComponents();
-        
+ 
+   
+    }   
+      /*
+  public void setdato(String dato) {
+    try {
+        // Asegúrate de que dato no sea nulo y tenga un valor
+        if (dato != null && !dato.isEmpty()) {
+            // Intentar convertir el texto a un número entero
+            int precioPizza = Integer.parseInt(dato);
+
+            // ... (resto del código)
+        } else {
+            System.out.println("Error: El precio de la pizza no es válido");
+        }
+    } catch (NumberFormatException e) {
+        // Manejar la excepción si el texto no es un número entero válido
+        System.out.println("Error: No es un número entero válido");
     }
-    
+
+    // Establecer el texto en nombre_De_combo_text (si es necesario)
+    nombre_De_combo_text.setText(dato);
+}*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -35,6 +51,10 @@ public class ventana_05 extends javax.swing.JFrame {
         devolvi_cambio_text = new javax.swing.JTextField();
         nombre_de_combo = new javax.swing.JLabel();
         nombre_De_combo_text = new javax.swing.JTextField();
+        pagar_boton = new javax.swing.JPanel();
+        pagarbotontext = new javax.swing.JLabel();
+        menu = new javax.swing.JPanel();
+        text_menu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -126,15 +146,19 @@ public class ventana_05 extends javax.swing.JFrame {
 
         jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBox1.setText("Usar descuento");
-        bg.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        bg.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
 
         recibi_pago.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         recibi_pago.setText("Recibì");
         bg.add(recibi_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         recibi_pago_text.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        recibi_pago_text.setForeground(new java.awt.Color(204, 204, 204));
-        recibi_pago_text.setText("$");
+        recibi_pago_text.setForeground(new java.awt.Color(0, 0, 0));
         recibi_pago_text.setBorder(null);
         recibi_pago_text.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -153,8 +177,7 @@ public class ventana_05 extends javax.swing.JFrame {
         bg.add(precio_total_descuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
 
         precio_total_descuento_text.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        precio_total_descuento_text.setForeground(new java.awt.Color(204, 204, 204));
-        precio_total_descuento_text.setText("$");
+        precio_total_descuento_text.setForeground(new java.awt.Color(0, 0, 0));
         precio_total_descuento_text.setToolTipText("");
         precio_total_descuento_text.setBorder(null);
         precio_total_descuento_text.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -171,10 +194,10 @@ public class ventana_05 extends javax.swing.JFrame {
 
         devolvi_cambio.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         devolvi_cambio.setText("devolvì");
-        bg.add(devolvi_cambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
+        bg.add(devolvi_cambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, -1, -1));
 
         devolvi_cambio_text.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        devolvi_cambio_text.setForeground(new java.awt.Color(204, 204, 204));
+        devolvi_cambio_text.setForeground(new java.awt.Color(0, 0, 0));
         devolvi_cambio_text.setText("$");
         devolvi_cambio_text.setBorder(null);
         devolvi_cambio_text.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -187,14 +210,14 @@ public class ventana_05 extends javax.swing.JFrame {
                 devolvi_cambio_textActionPerformed(evt);
             }
         });
-        bg.add(devolvi_cambio_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 120, 30));
+        bg.add(devolvi_cambio_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 120, 30));
 
         nombre_de_combo.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        nombre_de_combo.setText("Nombre Del Combo");
+        nombre_de_combo.setText("Precio Del Combo");
         bg.add(nombre_de_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
 
         nombre_De_combo_text.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        nombre_De_combo_text.setForeground(new java.awt.Color(51, 51, 51));
+        nombre_De_combo_text.setForeground(new java.awt.Color(0, 0, 0));
         nombre_De_combo_text.setText("$");
         nombre_De_combo_text.setBorder(null);
         nombre_De_combo_text.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -208,6 +231,78 @@ public class ventana_05 extends javax.swing.JFrame {
             }
         });
         bg.add(nombre_De_combo_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 140, 30));
+
+        pagar_boton.setBackground(new java.awt.Color(0, 0, 0));
+
+        pagarbotontext.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        pagarbotontext.setForeground(new java.awt.Color(255, 255, 255));
+        pagarbotontext.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pagarbotontext.setText("Pagar");
+        pagarbotontext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pagarbotontext.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pagarbotontextMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pagarbotontextMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pagarbotontextMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pagar_botonLayout = new javax.swing.GroupLayout(pagar_boton);
+        pagar_boton.setLayout(pagar_botonLayout);
+        pagar_botonLayout.setHorizontalGroup(
+            pagar_botonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pagar_botonLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pagarbotontext, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pagar_botonLayout.setVerticalGroup(
+            pagar_botonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pagar_botonLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pagarbotontext, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        bg.add(pagar_boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 131, 40));
+
+        menu.setBackground(new java.awt.Color(0, 0, 0));
+
+        text_menu.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        text_menu.setForeground(new java.awt.Color(255, 255, 255));
+        text_menu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        text_menu.setText("Menu");
+        text_menu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        text_menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                text_menuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                text_menuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                text_menuMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
+        menu.setLayout(menuLayout);
+        menuLayout.setHorizontalGroup(
+            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(text_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        menuLayout.setVerticalGroup(
+            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(text_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        bg.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 131, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -256,7 +351,7 @@ public class ventana_05 extends javax.swing.JFrame {
     }//GEN-LAST:event_recibi_pago_textMousePressed
 
     private void recibi_pago_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recibi_pago_textActionPerformed
-
+//digita el dinero
     }//GEN-LAST:event_recibi_pago_textActionPerformed
 
     private void precio_total_descuento_textMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_precio_total_descuento_textMousePressed
@@ -267,7 +362,7 @@ public class ventana_05 extends javax.swing.JFrame {
     }//GEN-LAST:event_precio_total_descuento_textMousePressed
 
     private void precio_total_descuento_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precio_total_descuento_textActionPerformed
-
+//total a pagar
     }//GEN-LAST:event_precio_total_descuento_textActionPerformed
 
     private void devolvi_cambio_textMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolvi_cambio_textMousePressed
@@ -275,7 +370,7 @@ public class ventana_05 extends javax.swing.JFrame {
     }//GEN-LAST:event_devolvi_cambio_textMousePressed
 
     private void devolvi_cambio_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolvi_cambio_textActionPerformed
-
+//cambio a devc
     }//GEN-LAST:event_devolvi_cambio_textActionPerformed
 
     private void nombre_De_combo_textMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombre_De_combo_textMousePressed
@@ -284,17 +379,81 @@ public class ventana_05 extends javax.swing.JFrame {
 
     private void nombre_De_combo_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombre_De_combo_textActionPerformed
         //obtener precio
+       
     }//GEN-LAST:event_nombre_De_combo_textActionPerformed
-
-     private boolean isValidLogin(String username, String password) {
-
-        return username.equals("freddy") && password.equals("fazbear");
-    }
-
-    private void resetLoginAttempts() {
-        loginAttempts = 0;
-    }
+// Método para actualizar el precio del combo en la ventana
+void actualizarPrecioCombo(double preciCoombo) {
     
+   
+}
+    private void pagarbotontextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pagarbotontextMouseClicked
+      try {
+            // Obtener el precio del combo ingresado por el usuario
+            double precioCombo = Double.parseDouble(nombre_De_combo_text.getText());
+
+            // Calcular el descuento si es necesario
+            double total = 0;
+            double preciocondescuento = 0L;
+            if (jCheckBox1.isSelected()) {
+                total = (precioCombo * 0.20) ;  // Aplicar descuento del 20%
+                preciocondescuento = precioCombo - total;
+            } else {
+                preciocondescuento = precioCombo;
+            }
+
+            // Obtener la cantidad recibida del usuario
+            double cantidadRecibida;
+            try {
+                cantidadRecibida = Double.parseDouble(recibi_pago_text.getText());
+            } catch (NumberFormatException ex) {
+                // Manejar la excepción si el monto recibido no es un número válido
+                System.out.println("Error: Monto recibido no es un número válido");
+                return;
+            }
+
+            // Calcular el cambio
+            double cambio = cantidadRecibida - preciocondescuento;
+
+            // Mostrar el total en el campo correspondiente
+            precio_total_descuento_text.setText("$" + preciocondescuento);
+
+            // Mostrar el cambio en el campo correspondiente
+            devolvi_cambio_text.setText("$" + cambio);
+        } catch (NumberFormatException e) {
+            // Manejar la excepción si el texto no es un número válido
+            System.out.println("Error: No es un número válido");
+        }
+
+    }//GEN-LAST:event_pagarbotontextMouseClicked
+
+    private void pagarbotontextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pagarbotontextMouseEntered
+
+    }//GEN-LAST:event_pagarbotontextMouseEntered
+
+    private void pagarbotontextMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pagarbotontextMouseExited
+
+    }//GEN-LAST:event_pagarbotontextMouseExited
+
+    private void text_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_text_menuMouseClicked
+
+        Menu openventana = new Menu();
+        openventana.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_text_menuMouseClicked
+
+    private void text_menuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_text_menuMouseEntered
+
+    }//GEN-LAST:event_text_menuMouseEntered
+
+    private void text_menuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_text_menuMouseExited
+
+    }//GEN-LAST:event_text_menuMouseExited
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+  //metodo para obtener el precio
 
 
     /**
@@ -346,11 +505,15 @@ public class ventana_05 extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logo;
+    private javax.swing.JPanel menu;
     private javax.swing.JTextField nombre_De_combo_text;
     private javax.swing.JLabel nombre_de_combo;
+    private javax.swing.JPanel pagar_boton;
+    private javax.swing.JLabel pagarbotontext;
     private javax.swing.JLabel precio_total_descuento;
     private javax.swing.JTextField precio_total_descuento_text;
     private javax.swing.JLabel recibi_pago;
     private javax.swing.JTextField recibi_pago_text;
+    private javax.swing.JLabel text_menu;
     // End of variables declaration//GEN-END:variables
 }

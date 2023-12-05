@@ -1,25 +1,12 @@
 package com.login;
-
 import java.awt.Color;;
-import javax.swing.Timer;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
-import java.util.HashMap;
-import java.util.Map;
-
 public class ventana_04 extends javax.swing.JFrame {
     
     int xMouse, yMouse;
-    private int loginAttempts = 0;
-    private Map<String, Double> preciosPizza = new HashMap<>();
-    private String pizzaSeleccionada;
-    private Timer timer;
-    private boolean timerRunning = false; // Variable para verificar si el temporizador está en ejecución
+    private int dato;
     public ventana_04() {
-        initComponents();
-        
+        initComponents(); 
     }
     
     @SuppressWarnings("unchecked")
@@ -149,7 +136,7 @@ public class ventana_04 extends javax.swing.JFrame {
         efectivo.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
         efectivo.setForeground(new java.awt.Color(255, 255, 255));
         efectivo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        efectivo.setText("EFECTIVO");
+        efectivo.setText("Siguente");
         efectivo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         efectivo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -242,7 +229,6 @@ public class ventana_04 extends javax.swing.JFrame {
 
         total_a_pagar.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         total_a_pagar.setForeground(new java.awt.Color(51, 51, 51));
-        total_a_pagar.setText("$");
         total_a_pagar.setBorder(null);
         total_a_pagar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -296,11 +282,10 @@ public class ventana_04 extends javax.swing.JFrame {
     }//GEN-LAST:event_exitTxtMouseExited
 
     private void efectivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_efectivoMouseClicked
-
         ventana_05 openventana = new ventana_05();
+       // openventana.setdato(total_a_pagar.getText());
         openventana.setVisible(true);
         dispose();
-
     }//GEN-LAST:event_efectivoMouseClicked
 
     private void efectivoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_efectivoMouseEntered
@@ -373,7 +358,7 @@ private void actualizarPrecioTotal() {
         double precioTotal = cantidad * precioPizza;
 
         // Mostrar el precio total en el campo de texto (TextField)
-        total_a_pagar.setText("Precio Total: $" + precioTotal);
+        total_a_pagar.setText(""+precioTotal);
     } else {
         // Mostrar un mensaje de error o manejar la entrada incorrecta de alguna manera
         System.out.println("Error: Ingrese un valor numérico válido");
@@ -417,21 +402,11 @@ private double obtenerPrecioPizza(String pizza) {
         default:
             return 0.0;
     }
-}
-
-  
-  private boolean isValidLogin(String username, String password) {
-
-        return username.equals("freddy") && password.equals("fazbear");
-    }
-
-    private void resetLoginAttempts() {
-        loginAttempts = 0;
-    }
-    
+} 
+// Método para obtener el precio del combo seleccionado
 
 
-    /**
+/**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
