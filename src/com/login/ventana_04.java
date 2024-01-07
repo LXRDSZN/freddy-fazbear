@@ -1,12 +1,18 @@
 package com.login;
-import java.awt.Color;;
+import java.awt.Color;import javax.swing.ImageIcon;
+;
+
+import javax.swing.JOptionPane;
 import javax.swing.JOptionPane;
 public class ventana_04 extends javax.swing.JFrame {
     
     int xMouse, yMouse;
+    
+    
     private int dato;
     public ventana_04() {
         initComponents(); 
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -16,6 +22,7 @@ public class ventana_04 extends javax.swing.JFrame {
         bg = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         header = new javax.swing.JPanel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
@@ -45,15 +52,29 @@ public class ventana_04 extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
+        jToggleButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jToggleButton1.setText("MODO");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(249, Short.MAX_VALUE)
+                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(462, Short.MAX_VALUE))
         );
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 330, 500));
@@ -283,7 +304,7 @@ public class ventana_04 extends javax.swing.JFrame {
 
     private void efectivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_efectivoMouseClicked
         ventana_05 openventana = new ventana_05();
-       // openventana.setdato(total_a_pagar.getText());
+       openventana.setdato(total_a_pagar.getText());
         openventana.setVisible(true);
         dispose();
     }//GEN-LAST:event_efectivoMouseClicked
@@ -382,6 +403,16 @@ private boolean esNumero(String str) {
 //obtener precio 
     }//GEN-LAST:event_total_a_pagarActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+      if (jToggleButton1.isSelected()) {
+        jPanel1.setBackground(Color.BLACK);
+        jToggleButton1.setText("Dark");
+    } else {
+        jPanel1.setBackground(Color.WHITE);
+        jToggleButton1.setText("White");
+    }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
 
 
    // Método para obtener el precio de una pizza específica
@@ -454,6 +485,7 @@ private double obtenerPrecioPizza(String pizza) {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel pego_efectivo;
     private javax.swing.JPanel pego_tarjeta;

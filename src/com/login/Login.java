@@ -12,7 +12,7 @@ public class Login extends javax.swing.JFrame {
     private boolean timerRunning = false; // Variable para verificar si el temporizador está en ejecución
     public Login() {
         initComponents();
-        
+     
     }
     
     @SuppressWarnings("unchecked")
@@ -272,7 +272,7 @@ public class Login extends javax.swing.JFrame {
             if (isValidLogin(username, password)) {
                 // Lógica para un inicio de sesión exitoso
                 JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso", "LOGIN", JOptionPane.INFORMATION_MESSAGE);
-                Menu openmenu = new Menu();
+                PantallaCarga openmenu = new PantallaCarga();
                 openmenu.setVisible(true);
                 dispose();
                 resetLoginAttempts();

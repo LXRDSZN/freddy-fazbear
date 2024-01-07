@@ -3,34 +3,21 @@ package com.login;
 import java.awt.Color;
 
 public class ventana_05 extends javax.swing.JFrame {
-    
+    private javax.swing.JSpinner cantidadSpinner;
+
     int xMouse, yMouse;
     private String dato;
     public ventana_05() {
         initComponents();
- 
+
    
     }   
-      /*
+    
   public void setdato(String dato) {
-    try {
-        // Asegúrate de que dato no sea nulo y tenga un valor
-        if (dato != null && !dato.isEmpty()) {
-            // Intentar convertir el texto a un número entero
-            int precioPizza = Integer.parseInt(dato);
-
-            // ... (resto del código)
-        } else {
-            System.out.println("Error: El precio de la pizza no es válido");
-        }
-    } catch (NumberFormatException e) {
-        // Manejar la excepción si el texto no es un número entero válido
-        System.out.println("Error: No es un número entero válido");
-    }
-
-    // Establecer el texto en nombre_De_combo_text (si es necesario)
-    nombre_De_combo_text.setText(dato);
-}*/
+    
+      this.dato = dato;
+    devolvi_cambio_camp.setText(dato);
+}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -55,6 +42,9 @@ public class ventana_05 extends javax.swing.JFrame {
         pagarbotontext = new javax.swing.JLabel();
         menu = new javax.swing.JPanel();
         text_menu = new javax.swing.JLabel();
+        precio_a_pagartetxt2 = new javax.swing.JLabel();
+        devolvi_cambio_camp = new javax.swing.JTextField();
+        jRadioButton1 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -214,7 +204,7 @@ public class ventana_05 extends javax.swing.JFrame {
 
         nombre_de_combo.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         nombre_de_combo.setText("Precio Del Combo");
-        bg.add(nombre_de_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+        bg.add(nombre_de_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
         nombre_De_combo_text.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         nombre_De_combo_text.setForeground(new java.awt.Color(0, 0, 0));
@@ -303,6 +293,33 @@ public class ventana_05 extends javax.swing.JFrame {
         );
 
         bg.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 131, 40));
+
+        precio_a_pagartetxt2.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        precio_a_pagartetxt2.setText("Precio Del Combo");
+        bg.add(precio_a_pagartetxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 140, -1));
+
+        devolvi_cambio_camp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        devolvi_cambio_camp.setForeground(new java.awt.Color(0, 0, 0));
+        devolvi_cambio_camp.setBorder(null);
+        devolvi_cambio_camp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                devolvi_cambio_campMousePressed(evt);
+            }
+        });
+        devolvi_cambio_camp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                devolvi_cambio_campActionPerformed(evt);
+            }
+        });
+        bg.add(devolvi_cambio_camp, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 120, 30));
+
+        jRadioButton1.setText("Limpiar");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        bg.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -453,8 +470,30 @@ void actualizarPrecioCombo(double preciCoombo) {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
-  //metodo para obtener el precio
+    private void devolvi_cambio_campMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolvi_cambio_campMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_devolvi_cambio_campMousePressed
 
+    private void devolvi_cambio_campActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolvi_cambio_campActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_devolvi_cambio_campActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+         limpiarCampos(); 
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+private void limpiarCampos() {
+    recibi_pago_text.setText("");
+    
+    precio_total_descuento_text.setText("");
+    
+    devolvi_cambio_text.setText("$");
+    
+    nombre_De_combo_text.setText("$");
+    
+    jCheckBox1.setSelected(false);
+}
 
     /**
      * @param args the command line arguments
@@ -497,6 +536,7 @@ void actualizarPrecioCombo(double preciCoombo) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JLabel devolvi_cambio;
+    private javax.swing.JTextField devolvi_cambio_camp;
     private javax.swing.JTextField devolvi_cambio_text;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
@@ -504,12 +544,14 @@ void actualizarPrecioCombo(double preciCoombo) {
     private javax.swing.JPanel header;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel menu;
     private javax.swing.JTextField nombre_De_combo_text;
     private javax.swing.JLabel nombre_de_combo;
     private javax.swing.JPanel pagar_boton;
     private javax.swing.JLabel pagarbotontext;
+    private javax.swing.JLabel precio_a_pagartetxt2;
     private javax.swing.JLabel precio_total_descuento;
     private javax.swing.JTextField precio_total_descuento_text;
     private javax.swing.JLabel recibi_pago;
